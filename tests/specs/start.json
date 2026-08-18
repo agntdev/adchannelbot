@@ -1,13 +1,13 @@
 [
   {
-    "name": "/start replies with the welcome + main menu",
+    "name": "/start explains when owner access is not configured",
     "steps": [
       {
         "send": { "text": "/start" },
         "expect": [
           {
             "method": "sendMessage",
-            "payload": { "text": "👋 Welcome! Tap a button below to get started." }
+          "payload": { "text": "Owner access isn't set up yet." }
           }
         ]
       }
