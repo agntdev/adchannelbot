@@ -36,6 +36,7 @@ export interface DOStub {
   fetch(input: string, init?: { method?: string; body?: string }): Promise<Response>;
 }
 export interface WorkerEnv {
+  [key: string]: unknown;
   BOT_TOKEN: string;
   WEBHOOK_SECRET?: string;
   CHAT_DO: DONamespace;

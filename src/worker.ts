@@ -14,6 +14,7 @@ import { webhookCallback, Composer, type Bot } from "grammy";
 import { buildBot, type Ctx } from "./bot.js";
 import { handlers } from "./handlers.generated.js";
 import { createDurableSessionStorage, type WorkerEnv } from "./toolkit/session/durable.js";
+import { pollFeed } from "./feed-poller.js";
 
 export { ChatDO } from "./toolkit/session/durable.js";
 
@@ -80,5 +81,10 @@ export default {
     }
 
     return new Response("not found", { status: 404 });
+  },
+  /** Cloudflare Cron invokes this every five minutes (configured at deploy). */
+  async scheduled(_event: unknown, env: WorkerEnv): Promise<void> {
+    const bot = await getBot(env);
+    await pollFeed({ api: bot.api, env });
   },
 };

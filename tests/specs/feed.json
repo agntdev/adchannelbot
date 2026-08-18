@@ -1,0 +1,13 @@
+[
+  {
+    "name": "Feed status is protected until owner access is configured",
+    "steps": [
+      {
+        "send": { "callback": "feed:status" },
+        "expect": [
+          { "method": "sendMessage", "payload": { "text": "Owner access isn't set up yet." } }
+        ]
+      }
+    ]
+  }
+]

@@ -1,13 +1,13 @@
 [
   {
-    "name": "View Recent Ads",
+    "name": "Recent ads is protected until owner access is configured",
     "steps": [
       {
         "expect": [
           {
             "method": "sendMessage",
             "payload": {
-              "text": "Show last 10 posted ads with delete/repost options"
+              "text": "Owner access isn't set up yet."
             }
           }
         ],
